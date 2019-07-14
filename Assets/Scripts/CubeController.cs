@@ -2,24 +2,37 @@
 
 [ExecuteInEditMode]
 public class CubeController : MonoBehaviour {
-    [Range( 1, 20 )] [SerializeField] int gridSize = 10;
 
-    TextMesh textMesh;
+    int gridSize;
+
+    Waypoint waypoint;
+
+    void Awake( ) {
+        waypoint = GetComponent<Waypoint>( );
+        gridSize = waypoint.getGridSize( );
+    }
 
     void Start( ) {
-        textMesh = GetComponentInChildren<TextMesh>( );
-        textMesh.text = ("0,0");
+
     }
     void Update( ) {
-        Vector3 snapPosition;
-        snapPosition.x = Mathf.RoundToInt( transform.position.x / gridSize ) * gridSize;
-        //snapPosition.y = Mathf.RoundToInt( transform.position.y / gridSize ) * gridSize;
-        snapPosition.y = 0;
-        snapPosition.z = Mathf.RoundToInt( transform.position.z / gridSize ) * gridSize;
-        transform.position = snapPosition;
-        string posText = ("(" + (snapPosition.x / gridSize) + "," + (snapPosition.z / gridSize) + ")");
+        SnapToGrid( );
+        UpdateLabel( );
+    }
+
+    private void UpdateLabel( ) {
+        TextMesh textMesh = GetComponentInChildren<TextMesh>( );
+        string posText = ("(" + (waypoint.GetGridPosition( ).x) + "," + (waypoint.GetGridPosition( ).y) + ")");
         textMesh.text = posText;
         gameObject.name = "Cube " + posText;
     }
 
+    private void SnapToGrid( ) {
+        transform.position = new Vector3Int(
+            waypoint.GetGridPosition( ).x * gridSize,
+            0,
+            waypoint.GetGridPosition( ).y * gridSize
+            );
+            
+    }
 }
