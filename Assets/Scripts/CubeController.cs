@@ -17,7 +17,9 @@ public class CubeController : MonoBehaviour {
         snapPosition.y = 0;
         snapPosition.z = Mathf.RoundToInt( transform.position.z / gridSize ) * gridSize;
         transform.position = snapPosition;
-        textMesh.text = ("(" + (snapPosition.x / gridSize) + "," + (snapPosition.z / gridSize) + ")");
+        string posText = ("(" + (snapPosition.x / gridSize) + "," + (snapPosition.z / gridSize) + ")");
+        textMesh.text = posText;
+        gameObject.name = "Cube " + posText;
     }
 
 }
