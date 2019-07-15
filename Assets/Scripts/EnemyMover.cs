@@ -6,6 +6,8 @@ public class EnemyMover : MonoBehaviour {
     [SerializeField] List<Waypoint> waypoints;
     // Start is called before the first frame update
     void Start( ) {
+        PathFinder pathFinder = FindObjectOfType<PathFinder>( );
+        waypoints = pathFinder.getPath( );
         StartCoroutine( MoveAlongAllWaypoints( ) );
     }
 
@@ -16,10 +18,10 @@ public class EnemyMover : MonoBehaviour {
 
     IEnumerator<WaitForSeconds> MoveAlongAllWaypoints( ) {
         foreach( Waypoint waypoint in waypoints ) {
-            Vector3 snapPosition = new Vector3();
-            snapPosition.x = waypoint.transform.position.x;
-            snapPosition.y = 5f;
-            snapPosition.z = waypoint.transform.position.z;
+            Vector3 snapPosition = new Vector3(
+                waypoint.transform.position.x,
+                10f,
+                waypoint.transform.position.z );
             transform.position = snapPosition;
             yield return new WaitForSeconds( 1f );
         }

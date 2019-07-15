@@ -33,6 +33,5 @@ public class CubeController : MonoBehaviour {
             0,
             waypoint.GetGridPosition( ).y * gridSize
             );
-            
     }
 }

@@ -3,6 +3,8 @@
 public class Waypoint : MonoBehaviour {
 
     const int gridSize = 10;
+    public bool isExplored = false;
+    public Waypoint exploredFrom;
 
     Vector2Int gridPosition;
     // Start is called before the first frame update
@@ -21,7 +23,7 @@ public class Waypoint : MonoBehaviour {
     public Vector2Int GetGridPosition( ) {
         gridPosition = new Vector2Int(
         Mathf.RoundToInt( transform.position.x / gridSize ),
-        Mathf.RoundToInt( transform.position.z / gridSize ));
+        Mathf.RoundToInt( transform.position.z / gridSize ) );
         return gridPosition;
     }
     public void SetTopColor( Color color ) {
