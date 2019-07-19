@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isNeutral: 1
 --- !u!1 &2425334062388601336
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5239101400027295437}
-  m_Text: (3,2)
+  m_Text: (0,0)
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1
@@ -314,6 +315,10 @@ PrefabInstance:
     - target: {fileID: 1346198445039670, guid: 700ff3467e6f35c4d9307b685e8746d1, type: 3}
       propertyPath: m_Name
       value: Block_Neutral
+      objectReference: {fileID: 0}
+    - target: {fileID: 1346198445039670, guid: 700ff3467e6f35c4d9307b685e8746d1, type: 3}
+      propertyPath: m_TagString
+      value: Neutral
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 700ff3467e6f35c4d9307b685e8746d1, type: 3}

@@ -6,6 +6,8 @@ public class Waypoint : MonoBehaviour {
     public bool isExplored = false;
     public Waypoint exploredFrom;
 
+    [SerializeField] bool isNeutral = false;
+
     Vector2Int gridPosition;
     // Start is called before the first frame update
     void Start( ) {
@@ -29,5 +31,9 @@ public class Waypoint : MonoBehaviour {
     public void SetTopColor( Color color ) {
         MeshRenderer topRenderer = transform.Find( "Top" ).GetComponent<MeshRenderer>( );
         topRenderer.material.color = color;
+    }
+
+    public bool CheckIsNeutral( ) {
+        return isNeutral;
     }
 }

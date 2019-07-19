@@ -20,13 +20,12 @@ public class PathFinder : MonoBehaviour {
 
     Waypoint searchPoint;
     // Start is called before the first frame update
-    void Start( ) {
-        
-    }
-    public List<Waypoint> getPath( ) {
+    void Awake( ) {
         LoadBlocks( );
         PathFind( );
         MakePath( );
+    }
+    public List<Waypoint> getPath( ) {
         return path;
     }
     private void PathFind( ) {
@@ -72,7 +71,9 @@ public class PathFinder : MonoBehaviour {
     private void LoadBlocks( ) {
         Waypoint[] waypoints = FindObjectsOfType<Waypoint>( );
         foreach( Waypoint waypoint in waypoints ) {
-
+            if( waypoint.CheckIsNeutral()) {
+                continue;
+            }
             var gridPos = waypoint.GetGridPosition( );
             //check or overlapping blocks
             if( grid.ContainsKey( gridPos ) ) {
