@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2425334061198321750}
   - component: {fileID: 3996373461894792072}
   - component: {fileID: 335127449}
+  - component: {fileID: 8540326242471592549}
   m_Layer: 0
   m_Name: Friendly Cube
-  m_TagString: Untagged
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +61,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isNeutral: 0
+--- !u!65 &8540326242471592549
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425334061198321749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.392244, y: 10.501988, z: 9.579847}
+  m_Center: {x: -0.11522579, y: 4.750994, z: -0.043337822}
 --- !u!1 &2425334062388601336
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +249,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5239101400027295437}
-  m_Text: (1,1)
+  m_Text: (0,0)
   m_OffsetZ: 0
   m_CharacterSize: 0.25
   m_LineSpacing: 1

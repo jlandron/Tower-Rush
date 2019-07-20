@@ -9,16 +9,9 @@ public class Waypoint : MonoBehaviour {
     [SerializeField] bool isNeutral = false;
 
     Vector2Int gridPosition;
-    // Start is called before the first frame update
-    void Start( ) {
-
+    void OnMouseOver( ) {
+        print( "Mouse over" + gridPosition );
     }
-
-    // Update is called once per frame
-    void Update( ) {
-
-    }
-
     public int getGridSize( ) {
         return gridSize;
     }

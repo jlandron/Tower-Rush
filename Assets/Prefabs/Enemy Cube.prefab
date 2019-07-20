@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 335127449}
   m_Layer: 0
   m_Name: Enemy Cube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isNeutral: 0
 --- !u!1 &2425334062388601336
 GameObject:
   m_ObjectHideFlags: 0
