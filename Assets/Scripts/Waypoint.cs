@@ -1,17 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class Waypoint : MonoBehaviour {
 
     const int gridSize = 10;
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
+    public bool hasTower = false;
 
-    [SerializeField] bool isNeutral = false;
+    [SerializeField] TowerController towerPrefab;
+    [SerializeField] bool isNautral = false;
 
     Vector2Int gridPosition;
     void OnMouseOver( ) {
-        print( "Mouse over" + gridPosition );
+        if( isPlaceable ) {
+            if( Input.GetMouseButtonDown( 0 ) ) {
+                SpawnTower( );
+            }
+        }
     }
+
+    private void SpawnTower( ) {
+        if( !hasTower ) {
+            Vector3 towerPos = new Vector3( transform.position.x, transform.position.y + 10, transform.position.z );
+            TowerController tower = Instantiate( towerPrefab, towerPos, Quaternion.identity );
+            hasTower = true;
+        }
+    }
+
     public int getGridSize( ) {
         return gridSize;
     }
@@ -25,8 +42,7 @@ public class Waypoint : MonoBehaviour {
         MeshRenderer topRenderer = transform.Find( "Top" ).GetComponent<MeshRenderer>( );
         topRenderer.material.color = color;
     }
-
     public bool CheckIsNeutral( ) {
-        return isNeutral;
+        return isNautral;
     }
 }

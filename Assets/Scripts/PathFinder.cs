@@ -43,12 +43,18 @@ public class PathFinder : MonoBehaviour {
     }
     private void MakePath( ) {
         Waypoint current = end;
+        end.isPlaceable = false;
         while( current != start ) {
-            path.Add( current );
+            AddToPath( current );
             current = current.exploredFrom;
         }
-        path.Add( start );
+        AddToPath( start );
         path.Reverse( );
+    }
+
+    private void AddToPath( Waypoint waypoint ) {
+        path.Add( waypoint );
+        waypoint.isPlaceable = false;
     }
 
     private void ExploreNeighbors() {
