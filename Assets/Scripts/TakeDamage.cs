@@ -28,7 +28,7 @@ public class TakeDamage : MonoBehaviour {
     private void kill( Vector3 pos ) {
     
         Instantiate( death, pos, Quaternion.identity );
-        AudioSource.PlayClipAtPoint( deathSound, transform.position );
+        AudioSource.PlayClipAtPoint( deathSound, Camera.main.transform.position );
         Destroy( this.gameObject);
     }
 }
