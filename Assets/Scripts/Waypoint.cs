@@ -23,9 +23,7 @@ public class Waypoint : MonoBehaviour {
 
     private void SpawnTower( ) {
         if( !hasTower ) {
-            Vector3 towerPos = new Vector3( transform.position.x, transform.position.y + 10, transform.position.z );
-            TowerController tower = Instantiate( towerPrefab, towerPos, Quaternion.identity );
-            hasTower = true;
+            FindObjectOfType<TowerFactory>().AddTower( this );
         }
     }
 
@@ -37,10 +35,6 @@ public class Waypoint : MonoBehaviour {
         Mathf.RoundToInt( transform.position.x / gridSize ),
         Mathf.RoundToInt( transform.position.z / gridSize ) );
         return gridPosition;
-    }
-    public void SetTopColor( Color color ) {
-        MeshRenderer topRenderer = transform.Find( "Top" ).GetComponent<MeshRenderer>( );
-        topRenderer.material.color = color;
     }
     public bool CheckIsNeutral( ) {
         return isNautral;

@@ -9,8 +9,6 @@ public class TakeDamage : MonoBehaviour {
     [SerializeField] AudioClip hitSound;
     [SerializeField] AudioClip deathSound;
 
-    private bool dying = false;
-
     AudioSource audioSource;
     void Start( ) {
         audioSource = GetComponent<AudioSource>( );
@@ -27,11 +25,11 @@ public class TakeDamage : MonoBehaviour {
         }
     }
 
-    private void kill( Vector3 pos ) {
+    private void kill( Vector3 pos ) 
         Instantiate( death, pos, Quaternion.identity );
         audioSource.Stop( );
         audioSource.volume = 0.5f;
         audioSource.PlayOneShot( deathSound );
-        Destroy( this.gameObject , 1f);
+        Destroy( this.gameObject);
     }
 }
