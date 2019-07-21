@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fc03b4e27c38147a01dbd8b61dd048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
+  moveSpeed: 0.5
   explosion: {fileID: 198537984209914932, guid: 3b18cdb7172b2f7448137af3f03a78a9,
     type: 3}
   explosionSound: {fileID: 8300000, guid: 87043b4c1104a3547aee89974036eb83, type: 3}
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fb13f669d4d95448b04d46ed78c6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 5
+  hitPoints: 10
   hit: {fileID: 198801791596541968, guid: dcf9cd10c07cf0c49863969befadb243, type: 3}
   death: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
   hitSound: {fileID: 8300000, guid: 8e74214557ec83b4bb6ded111f5991aa, type: 3}

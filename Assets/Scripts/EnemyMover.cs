@@ -38,9 +38,7 @@ public class EnemyMover : MonoBehaviour {
     private void Blowup( Vector3 pos ) {
         Vector3 fixedPos = new Vector3( pos.x, pos.y + 10, pos.z );
         Instantiate( explosion, fixedPos, Quaternion.identity );
-        audioSource.Stop( );
-        audioSource.volume = 0.5f;
-        audioSource.PlayOneShot( explosionSound );
+        AudioSource.PlayClipAtPoint( explosionSound, Camera.main.transform.position );
         Destroy( this.gameObject, 0.5f);
     }
 }

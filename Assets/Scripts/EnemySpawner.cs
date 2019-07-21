@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour {
     [Header( "External dependencies" )]
     [SerializeField] Transform parent;
     [SerializeField] Text scoreText;
+    [SerializeField] AudioClip spawnSFX;
 
     void Start( ) {
         //start co-routine
@@ -23,6 +24,7 @@ public class EnemySpawner : MonoBehaviour {
             EnemyMover enemy = Instantiate( enemyPrefab, transform.position , Quaternion.identity);
             enemy.transform.parent = parent;
             scoreText.text = (scoreMultiplier * (i + 1)).ToString( );
+            FindObjectOfType<AudioSource>( ).PlayOneShot( spawnSFX );
             yield return new WaitForSeconds( secondsBetweenSpawns );
         }
     }
